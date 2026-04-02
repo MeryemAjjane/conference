@@ -1,0 +1,1588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IRASET'2026 — 6th International Conference | Fez, Morocco</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:      #0e1724;
+  --navy:     #0b1f3e;
+  --navy-mid: #122a52;
+  --gold:     #b8832a;
+  --gold-lt:  #d4a84b;
+  --gold-pale:#f0d898;
+  --sand:     #f7f2e8;
+  --sand2:    #ede6d6;
+  --white:    #ffffff;
+  --red:      #aa2a1a;
+  --teal:     #1a6b78;
+  --slate:    #4a5568;
+  --border:   #d8cebb;
+  --r:        8px;
+}
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body { font-family:'DM Sans',sans-serif; background:var(--sand); color:var(--ink); overflow-x:hidden; font-size:15px; }
+a { text-decoration:none; color:inherit; }
+img { max-width:100%; display:block; }
+
+/* ── TOPBAR ── */
+.topbar {
+  background: var(--ink);
+  color: rgba(255,255,255,.55);
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 48px;
+  gap: 12px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid rgba(184,131,42,.3);
+}
+.topbar strong { color: var(--gold-lt); }
+.topbar .sep { color: rgba(255,255,255,.2); margin: 0 10px; }
+
+/* ── HEADER ── */
+.header {
+  background: var(--navy);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Geometric zellige-inspired pattern */
+.header-pattern {
+  position: absolute;
+  inset: 0;
+  opacity: .055;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56'%3E%3Cpath d='M28 0 L56 28 L28 56 L0 28Z' fill='none' stroke='%23ffffff' stroke-width='1'/%3E%3Cpath d='M28 14 L42 28 L28 42 L14 28Z' fill='none' stroke='%23ffffff' stroke-width='.6'/%3E%3C/svg%3E");
+}
+
+/* Gold accent line top */
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold), var(--gold-lt), var(--gold), transparent);
+}
+
+.header-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 36px 48px 32px;
+  display: grid;
+  grid-template-columns: 160px 1fr 160px;
+  align-items: center;
+  gap: 32px;
+}
+
+/* LOGO MARK */
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+.logo-frame {
+  border: 1.5px solid rgba(184,131,42,.5);
+  border-radius: 6px;
+  padding: 12px 18px 10px;
+  text-align: center;
+  background: rgba(255,255,255,.04);
+}
+.logo-year {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .2em;
+  color: var(--gold-lt);
+  margin-bottom: 5px;
+}
+.logo-wordmark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: .04em;
+  display: flex;
+  gap: 0;
+}
+.logo-wordmark .l-i { color: var(--gold-pale); font-style:italic; }
+.logo-wordmark .l-r { color: #7dc8e8; }
+.logo-wordmark .l-a { color: var(--gold-lt); }
+.logo-wordmark .l-s { color: #7dc8e8; }
+.logo-wordmark .l-e { color: var(--gold-lt); }
+.logo-wordmark .l-t { color: #7dc8e8; }
+.logo-edition {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: .18em;
+  color: rgba(255,255,255,.3);
+  text-transform: uppercase;
+  margin-top: 5px;
+}
+
+/* HEADER CENTER */
+.hdr-center { text-align: center; }
+.hdr-sup {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+.hdr-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(17px, 2vw, 24px);
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.4;
+  letter-spacing: .01em;
+}
+.hdr-title em { font-style: italic; color: var(--gold-pale); }
+.hdr-meta {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+}
+.hdr-pill {
+  padding: 6px 18px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .03em;
+  white-space: nowrap;
+}
+.hdr-pill.date {
+  background: rgba(184,131,42,.18);
+  border: 1px solid rgba(184,131,42,.4);
+  color: var(--gold-pale);
+  border-right: none;
+  border-radius: 4px 0 0 4px;
+}
+.hdr-pill.loc {
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.15);
+  color: rgba(255,255,255,.85);
+  border-right: none;
+}
+.hdr-pill.hybrid {
+  background: rgba(26,107,120,.25);
+  border: 1px solid rgba(26,107,120,.5);
+  color: #80d8e8;
+  border-radius: 0 4px 4px 0;
+}
+.hdr-record {
+  margin-top: 10px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: rgba(255,255,255,.25);
+  letter-spacing: .08em;
+}
+
+/* HEADER RIGHT — sponsor badges */
+.hdr-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 5px;
+  transition: border-color .2s;
+}
+.badge:hover { border-color: rgba(184,131,42,.5); }
+.badge-ieee {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: white;
+  letter-spacing: .05em;
+}
+.badge-ieee .diamond {
+  display: inline-block;
+  width: 12px; height: 12px;
+  background: #3a9ad4;
+  transform: rotate(45deg);
+  margin-right: 5px;
+  flex-shrink: 0;
+}
+.badge-scopus-wrap {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 38%, #00c4b0, #006e62);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700; font-size: 12px; color: white;
+  border: 1.5px solid rgba(255,255,255,.15);
+}
+.badge-comsoc {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.1;
+}
+.badge-comsoc .part1 { color: #6dcff6; }
+.badge-comsoc .part2 { color: var(--gold-lt); }
+.badge-comsoc small { display: block; font-size: 8.5px; color: rgba(255,255,255,.35); font-weight: 400; letter-spacing: .04em; margin-top: 2px; }
+
+/* ── NAVBAR ── */
+nav {
+  background: var(--navy-mid);
+  border-bottom: 2px solid var(--gold);
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  box-shadow: 0 2px 20px rgba(0,0,0,.35);
+}
+.nav-wrap {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 48px;
+  display: flex;
+  align-items: stretch;
+}
+.nav-wrap a {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .03em;
+  color: rgba(255,255,255,.68);
+  padding: 14px 13px;
+  position: relative;
+  transition: color .2s;
+  white-space: nowrap;
+}
+.nav-wrap a::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 13px; right: 13px;
+  height: 2px;
+  background: var(--gold-lt);
+  transform: scaleX(0);
+  transition: transform .2s;
+}
+.nav-wrap a:hover { color: white; }
+.nav-wrap a:hover::after { transform: scaleX(1); }
+.nav-wrap a.active { color: white; }
+.nav-wrap a.active::after { transform: scaleX(1); }
+
+.nav-workshop {
+  margin-left: auto;
+  background: var(--gold);
+  color: var(--ink) !important;
+  font-weight: 700 !important;
+  font-size: 12px !important;
+  padding: 0 18px !important;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  line-height: 1.3;
+  letter-spacing: .02em !important;
+  transition: background .2s !important;
+}
+.nav-workshop::after { display: none !important; }
+.nav-workshop:hover { background: var(--gold-lt) !important; color: var(--ink) !important; }
+
+.ham-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 14px;
+  margin-left: auto;
+  flex-direction: column;
+  gap: 5px;
+}
+.ham-btn span { display: block; width: 22px; height: 2px; background: white; border-radius: 2px; transition: all .3s; }
+
+.nav-links { display: flex; align-items: stretch; flex: 1; overflow-x: auto; }
+.nav-links::-webkit-scrollbar { height: 0; }
+
+@media (max-width: 900px) {
+  .ham-btn { display: flex; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    background: var(--navy-mid);
+    flex-direction: column;
+    border-top: 1px solid rgba(184,131,42,.3);
+    box-shadow: 0 8px 30px rgba(0,0,0,.4);
+    overflow-x: visible;
+  }
+  .nav-links.open { display: flex; }
+  .nav-wrap a { padding: 13px 20px; border-bottom: 1px solid rgba(255,255,255,.05); }
+  .nav-wrap a::after { display: none; }
+  .nav-workshop { margin-left: 0; padding: 14px 20px !important; justify-content: flex-start; }
+  .nav-wrap { padding: 0 16px; }
+}
+
+/* ── HERO ── */
+.hero {
+  height: clamp(300px, 42vw, 500px);
+  position: relative;
+  overflow: hidden;
+  background: #0a1628;
+}
+.hero svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hero-veil {
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    105deg,
+    rgba(11,31,62,.92) 0%,
+    rgba(11,31,62,.6) 38%,
+    rgba(11,31,62,.1) 65%,
+    rgba(11,31,62,.5) 100%
+  );
+}
+.hero-text {
+  position: absolute; inset: 0;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 8% 0 6%;
+  max-width: 680px;
+}
+.hero-kicker {
+  font-family: 'DM Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--gold-lt);
+  margin-bottom: 14px;
+  animation: rise .9s ease both;
+}
+.hero-h {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 5vw, 58px);
+  font-weight: 700;
+  color: white;
+  line-height: 1.1;
+  letter-spacing: .01em;
+  text-shadow: 0 3px 24px rgba(0,0,0,.5);
+  animation: rise .9s .08s ease both;
+}
+.hero-h em { font-style: italic; color: var(--gold-pale); }
+.hero-body {
+  margin-top: 14px;
+  font-size: clamp(13px, 1.4vw, 15px);
+  color: rgba(255,255,255,.68);
+  line-height: 1.7;
+  max-width: 460px;
+  animation: rise .9s .18s ease both;
+}
+.hero-actions {
+  margin-top: 26px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  animation: rise .9s .28s ease both;
+}
+.btn-gold {
+  padding: 12px 28px;
+  background: var(--gold);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  border-radius: 3px;
+  transition: background .2s, transform .2s;
+  box-shadow: 0 4px 18px rgba(184,131,42,.4);
+}
+.btn-gold:hover { background: var(--gold-lt); transform: translateY(-2px); }
+.btn-ghost {
+  padding: 11px 26px;
+  background: transparent;
+  color: white;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  border: 1.5px solid rgba(255,255,255,.35);
+  border-radius: 3px;
+  transition: border-color .2s, background .2s;
+}
+.btn-ghost:hover { border-color: white; background: rgba(255,255,255,.08); }
+
+@keyframes rise { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+
+/* ── TICKER ── */
+.ticker {
+  background: var(--ink);
+  border-top: 1px solid rgba(184,131,42,.25);
+  border-bottom: 1px solid rgba(184,131,42,.25);
+  overflow: hidden;
+  padding: 9px 0;
+  position: relative;
+}
+.ticker::before,.ticker::after {
+  content: ''; position: absolute; top:0; bottom:0; width:80px; z-index:2; pointer-events:none;
+}
+.ticker::before { left:0; background:linear-gradient(to right,var(--ink),transparent); }
+.ticker::after  { right:0; background:linear-gradient(to left,var(--ink),transparent); }
+.t-track {
+  display: flex;
+  white-space: nowrap;
+  animation: tscroll 36s linear infinite;
+}
+.t-track:hover { animation-play-state: paused; }
+@keyframes tscroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+.t-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 24px;
+  font-size: 12px;
+  color: rgba(255,255,255,.52);
+}
+.t-item .lbl {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--gold-lt);
+}
+.t-item .val { color: #e87878; font-weight: 600; }
+.t-item .dot { color: rgba(184,131,42,.4); font-size: 16px; line-height: 1; }
+
+/* ── DATE BAND ── */
+.dateband {
+  background: white;
+  border-bottom: 1px solid var(--border);
+}
+.dateband-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+}
+@media(max-width:680px){.dateband-inner{grid-template-columns:repeat(2,1fr);}}
+.db-item {
+  padding: 20px 28px;
+  border-right: 1px solid var(--border);
+  transition: background .2s;
+}
+.db-item:last-child { border-right: none; }
+.db-item:hover { background: var(--sand); }
+.db-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin-bottom: 4px;
+}
+.db-date {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--red);
+}
+.db-desc {
+  font-size: 11.5px;
+  color: var(--slate);
+  margin-top: 2px;
+  font-weight: 500;
+}
+
+/* ── PAGE GRID ── */
+.page {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 64px 48px;
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 56px;
+  align-items: start;
+}
+@media(max-width:1040px){ .page { grid-template-columns:1fr; padding:40px 24px; gap:40px; } }
+
+/* ── SECTION HEADINGS ── */
+.s-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.s-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.15;
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+.s-title::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; left: 0;
+  width: 48px; height: 2px;
+  background: var(--gold);
+}
+.section-gap { margin-top: 52px; }
+
+/* ── ABOUT ── */
+.prose {
+  font-size: 15px;
+  line-height: 1.9;
+  color: #3a3d4a;
+  margin-bottom: 18px;
+  text-align: justify;
+}
+.prose strong { color: var(--ink); }
+.prose .accent { color: var(--teal); font-weight: 600; }
+
+.venue-callout {
+  margin-top: 28px;
+  padding: 20px 24px;
+  background: linear-gradient(135deg, #edf5f8, #e0edf2);
+  border-left: 3px solid var(--teal);
+  border-radius: 0 6px 6px 0;
+}
+.venue-callout p {
+  font-size: 14px;
+  color: #1e3a4a;
+  line-height: 1.7;
+}
+.venue-callout strong { color: var(--ink); font-size: 15px; }
+.venue-callout .vc-date { color: var(--red); font-weight: 700; font-family: 'Cormorant Garamond', serif; font-size: 16px; }
+
+/* ── TOPICS ── */
+.topics-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 10px;
+  margin-top: 22px;
+}
+@media(max-width:480px){ .topics-grid { grid-template-columns:1fr; } }
+.topic-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 16px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--ink);
+  transition: all .2s;
+}
+.topic-row::before {
+  content: '';
+  display: block;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+.topic-row:hover {
+  border-color: var(--gold);
+  background: #fffcf5;
+  transform: translateX(3px);
+}
+
+/* ── SPONSOR CARDS ── */
+.sp-row {
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+.sp-block {
+  flex: 1;
+  min-width: 160px;
+  padding: 24px 22px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  transition: border-color .2s, box-shadow .2s;
+}
+.sp-block:hover { border-color: var(--gold); box-shadow: 0 6px 24px rgba(184,131,42,.12); }
+.sp-ieee-mark {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  color: #00629b;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.sp-ieee-mark .sq {
+  display: inline-block;
+  width: 14px; height: 14px;
+  background: #00629b;
+  transform: rotate(45deg);
+}
+.sp-scopus-mark {
+  width: 62px; height: 62px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 38%, #02c8b4, #006e62);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700; font-size: 13px; color: white;
+}
+.sp-comsoc-mark { font-family: 'DM Sans', sans-serif; font-size: 22px; font-weight: 700; }
+.sp-comsoc-mark .c1 { color: #00629b; }
+.sp-comsoc-mark .c2 { color: var(--red); }
+.sp-label { font-size: 11px; color: var(--slate); font-weight: 500; letter-spacing: .02em; }
+
+/* ── PROCEEDINGS ── */
+.proc-row {
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+.proc-card {
+  flex: 1;
+  min-width: 160px;
+  padding: 24px 22px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  transition: border-color .2s;
+}
+.proc-card:hover { border-color: var(--gold); }
+.xplore-mark { text-align: center; }
+.xplore-mark .xl-ieee { font-size: 13px; font-weight: 700; color: #00629b; letter-spacing: .06em; }
+.xplore-mark .xl-name { font-size: 26px; font-weight: 700; color: #00629b; line-height: 1; }
+.xplore-mark .xl-sub  { font-size: 12px; font-style: italic; color: #d07000; margin-top: 1px; }
+
+/* ── EDITIONS ── */
+.editions { margin-top: 20px; }
+.ed-row {
+  display: grid;
+  grid-template-columns: 120px 1fr auto;
+  align-items: center;
+  gap: 18px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  transition: background .15s;
+}
+.ed-row:first-child { border-top: 1px solid var(--border); }
+@media(max-width:500px){
+  .ed-row { grid-template-columns:1fr auto; }
+  .ed-year { grid-column: 1; }
+  .ed-meta { grid-column: 1 / -1; grid-row: 2; }
+  .ed-link { grid-row: 1; }
+}
+.ed-year {
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: .05em;
+}
+.ed-meta { font-size: 12.5px; color: var(--slate); line-height: 1.5; }
+.ed-meta em { font-style: italic; }
+.ed-link {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--teal);
+  border: 1px solid currentColor;
+  padding: 5px 12px;
+  border-radius: 2px;
+  white-space: nowrap;
+  transition: all .18s;
+}
+.ed-link:hover { background: var(--teal); color: white; }
+
+/* ── PARTNERS ── */
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(6,1fr);
+  gap: 10px;
+  margin-top: 22px;
+}
+@media(max-width:880px){ .partners-grid { grid-template-columns:repeat(4,1fr); } }
+@media(max-width:580px){ .partners-grid { grid-template-columns:repeat(3,1fr); } }
+@media(max-width:380px){ .partners-grid { grid-template-columns:repeat(2,1fr); } }
+.p-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 14px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80px;
+  text-align: center;
+  transition: all .2s;
+}
+.p-card:hover { border-color: var(--gold); transform: translateY(-2px); box-shadow: 0 5px 16px rgba(0,0,0,.08); }
+.p-abbr {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: .04em;
+}
+.p-full { font-size: 8px; color: var(--slate); margin-top: 4px; line-height: 1.3; font-weight: 400; }
+
+/* ── SIDEBAR ── */
+.sidebar { display: flex; flex-direction: column; gap: 20px; }
+.scard {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.scard-head {
+  background: var(--navy);
+  padding: 12px 18px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--gold-lt);
+  border-bottom: 1px solid rgba(184,131,42,.2);
+}
+.scard-body { padding: 18px; }
+
+/* Dates list */
+.sdates { display: flex; flex-direction: column; }
+.sdate-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #f0e8d8;
+}
+.sdate-row:last-child { border-bottom: none; padding-bottom: 0; }
+.sdate-row:first-child { padding-top: 0; }
+.sdate-label { font-size: 12.5px; color: var(--slate); flex: 1; line-height: 1.4; }
+.sdate-val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--red);
+  white-space: nowrap;
+  text-align: right;
+}
+
+/* Submit */
+.sbtn {
+  display: block;
+  width: 100%;
+  padding: 13px;
+  text-align: center;
+  background: var(--gold);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  transition: background .2s, transform .15s;
+}
+.sbtn:hover { background: var(--gold-lt); transform: translateY(-1px); }
+.sbtn-note { font-size: 11px; color: var(--slate); text-align: center; margin-top: 8px; line-height: 1.5; }
+
+/* hybrid strip */
+.hybrid-strip {
+  padding: 14px 16px;
+  background: linear-gradient(135deg, #f0faf8, #ddf2ee);
+  border: 1px solid #a0d8d0;
+  border-radius: 4px;
+}
+.hybrid-strip strong { display: block; font-size: 13.5px; color: #0a4a42; margin-bottom: 2px; }
+.hybrid-strip span { font-size: 12px; color: #1a6a60; }
+
+/* mini map */
+.minimap {
+  width: 100%;
+  aspect-ratio: 4/3;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 14px;
+  background: #cde0ea;
+}
+.minimap svg { width: 100%; height: 100%; }
+.venue-text { font-size: 13px; line-height: 1.75; color: var(--ink); }
+.venue-text strong { color: var(--navy); }
+.venue-text a { color: var(--teal); font-weight: 600; border-bottom: 1px solid currentColor; }
+
+/* workshop card */
+.workshop-card {
+  border: 2px solid var(--gold) !important;
+}
+.workshop-card .scard-head {
+  background: linear-gradient(135deg, #aa7018, #c8981e);
+  color: var(--ink);
+}
+.w-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.w-desc { font-size: 12.5px; color: var(--slate); line-height: 1.65; margin-bottom: 14px; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--ink);
+  color: rgba(255,255,255,.5);
+  border-top: 3px solid var(--gold);
+  margin-top: 0;
+}
+.foot-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 52px 48px 36px;
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr;
+  gap: 40px;
+}
+@media(max-width:760px){ .foot-inner { grid-template-columns:1fr; padding:36px 24px; gap:28px; } }
+.foot-col h4 {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--gold-lt);
+  margin-bottom: 14px;
+}
+.foot-col p { font-size: 13px; line-height: 1.85; }
+.foot-links { display: flex; flex-direction: column; gap: 8px; }
+.foot-links a { font-size: 13px; color: rgba(255,255,255,.48); transition: color .2s; }
+.foot-links a:hover { color: var(--gold-lt); }
+.foot-links a::before { content: '—'; margin-right: 8px; color: var(--gold); opacity: .5; }
+.foot-bottom {
+  border-top: 1px solid rgba(255,255,255,.07);
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 16px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 11.5px;
+}
+@media(max-width:760px){ .foot-bottom { padding:16px 24px; } }
+.foot-bottom .rec { color: var(--gold-lt); font-family:'DM Mono',monospace; font-size:11px; }
+
+/* chip tags */
+.chip {
+  display: inline-block;
+  padding: 3px 10px;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  border-radius: 2px;
+  margin: 4px 4px 0 0;
+}
+
+/* ── SCROLL TOP ── */
+.stbtn {
+  position: fixed;
+  bottom: 28px; right: 28px;
+  width: 42px; height: 42px;
+  background: var(--navy);
+  color: var(--gold-lt);
+  border: 1.5px solid var(--gold);
+  border-radius: 3px;
+  font-size: 17px;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 400;
+  transition: all .2s;
+  font-family: 'DM Sans', sans-serif;
+}
+.stbtn:hover { background: var(--gold); color: var(--ink); }
+.stbtn.on { display: flex; }
+
+/* ── RESPONSIVE HEADER ── */
+@media(max-width:900px) {
+  .header-inner { grid-template-columns: 1fr; text-align: center; padding: 28px 24px; gap: 20px; }
+  .hdr-right { align-items: center; flex-direction: row; justify-content: center; }
+  .topbar { padding: 7px 20px; justify-content: center; }
+}
+@media(max-width:600px) {
+  .hdr-meta { flex-direction: column; align-items: center; }
+  .hdr-pill.date { border-radius: 4px; border-right: 1px solid rgba(184,131,42,.4); }
+  .hdr-pill.loc { border-radius: 4px; border-right: 1px solid rgba(255,255,255,.15); }
+  .hdr-pill.hybrid { border-radius: 4px; }
+}
+@media(max-width:480px) {
+  .hero-text { padding: 0 5%; }
+  .page { padding: 32px 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <span>IEEE Conference Record <strong>#68627</strong></span>
+  <span class="sep">|</span>
+  <span>Co-Sponsored by <strong>IEEE</strong> &amp; <strong>IEEE Communications Society</strong></span>
+  <span class="sep">|</span>
+  <span>Proceedings in <strong>IEEE Xplore</strong> &amp; <strong>Scopus</strong></span>
+</div>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-pattern"></div>
+  <div class="header-inner">
+
+    <!-- Logo -->
+    <div class="logo">
+      <div class="logo-frame">
+        <div class="logo-year">2026</div>
+        <div class="logo-wordmark">
+          <span class="l-i">i</span><span class="l-r">R</span><span class="l-a">A</span><span class="l-s">S</span><span class="l-e">E</span><span class="l-t">T</span>
+        </div>
+        <div class="logo-edition">6th Edition</div>
+      </div>
+    </div>
+
+    <!-- Center -->
+    <div class="hdr-center">
+      <div class="hdr-sup">The 6th International Conference</div>
+      <h1 class="hdr-title">
+        Innovative Research in <em>Applied Science,<br>Engineering and Technology</em>
+      </h1>
+      <div class="hdr-meta">
+        <span class="hdr-pill date">May 14–15, 2026</span>
+        <span class="hdr-pill loc">Faculty of Sciences Dhar El Mahraz — Fez, Morocco</span>
+        <span class="hdr-pill hybrid">Hybrid Conference</span>
+      </div>
+      <div class="hdr-record">IEEE conference record number: #68627</div>
+    </div>
+
+    <!-- Right badges -->
+    <div class="hdr-right">
+      <div class="badge">
+        <span class="badge-ieee">
+          <span class="diamond"></span>IEEE
+        </span>
+      </div>
+      <div class="badge" style="padding:8px 14px;">
+        <div class="badge-scopus-wrap">Scopus</div>
+      </div>
+      <div class="badge">
+        <div class="badge-comsoc">
+          <span class="part1">Com</span><span class="part2">Soc</span>
+          <small>IEEE Communications Society</small>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</header>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-wrap">
+    <button class="ham-btn" id="ham"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="navlinks">
+      <a href="#" class="active">Home</a>
+      <a href="#">Committees</a>
+      <a href="#">Call For Papers</a>
+      <a href="#">Special Sessions</a>
+      <a href="#">Important Dates</a>
+      <a href="#">Keynote Speakers</a>
+      <a href="#">Submission</a>
+      <a href="#">Registration</a>
+      <a href="#">Program</a>
+      <a href="#">Venue</a>
+      <a href="#" class="nav-workshop">3rd IWICCAS 2026 Workshop</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <!-- SVG landscape — Volubilis ruins at dusk -->
+  <svg viewBox="0 0 1440 500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%"   stop-color="#091628"/>
+        <stop offset="55%"  stop-color="#162d5c"/>
+        <stop offset="100%" stop-color="#3d688a"/>
+      </linearGradient>
+      <linearGradient id="gnd" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%"   stop-color="#c0a878"/>
+        <stop offset="100%" stop-color="#8a6840"/>
+      </linearGradient>
+      <linearGradient id="stone" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%"   stop-color="#d8c8a8"/>
+        <stop offset="100%" stop-color="#b09870"/>
+      </linearGradient>
+      <radialGradient id="moon" cx="50%" cy="50%" r="50%">
+        <stop offset="0%"   stop-color="#f8f0d8" stop-opacity=".9"/>
+        <stop offset="60%"  stop-color="#f0d898" stop-opacity=".5"/>
+        <stop offset="100%" stop-color="#f0d898" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+
+    <!-- Sky -->
+    <rect width="1440" height="500" fill="url(#sky)"/>
+
+    <!-- Moon glow -->
+    <circle cx="1240" cy="80" r="65" fill="url(#moon)"/>
+    <circle cx="1240" cy="80" r="22" fill="#fdf4d8" opacity=".92"/>
+
+    <!-- Stars — subtle, crisp -->
+    <circle cx="140" cy="38" r="1.2" fill="white" opacity=".6"/>
+    <circle cx="280" cy="22" r=".9" fill="white" opacity=".5"/>
+    <circle cx="430" cy="55" r="1.4" fill="white" opacity=".45"/>
+    <circle cx="600" cy="17" r=".9" fill="white" opacity=".6"/>
+    <circle cx="780" cy="42" r="1.2" fill="white" opacity=".5"/>
+    <circle cx="960" cy="12" r=".9" fill="white" opacity=".45"/>
+    <circle cx="1080" cy="50" r="1.2" fill="white" opacity=".55"/>
+    <circle cx="1360" cy="30" r=".9" fill="white" opacity=".5"/>
+    <circle cx="340" cy="70" r="1" fill="white" opacity=".35"/>
+    <circle cx="700" cy="62" r="1" fill="white" opacity=".4"/>
+    <circle cx="1150" cy="35" r="1" fill="white" opacity=".4"/>
+
+    <!-- Distant mountains layer 1 -->
+    <polygon points="0,295 80,230 180,262 290,198 410,238 520,185 650,225 760,188 880,222 990,175 1100,215 1220,182 1340,212 1440,190 1440,335 0,335" fill="#1e3a5a" opacity=".6"/>
+
+    <!-- Mountains layer 2 — with green hint -->
+    <polygon points="0,322 100,258 210,286 330,240 460,274 570,248 700,268 820,240 940,270 1060,244 1180,268 1300,244 1440,262 1440,350 0,350" fill="#284e38" opacity=".65"/>
+
+    <!-- Ground -->
+    <rect y="340" width="1440" height="160" fill="url(#gnd)"/>
+
+    <!-- Grass -->
+    <ellipse cx="250" cy="348" rx="120" ry="10" fill="#5a8040" opacity=".32"/>
+    <ellipse cx="780" cy="350" rx="200" ry="12" fill="#5a8040" opacity=".28"/>
+    <ellipse cx="1250" cy="347" rx="140" ry="9"  fill="#5a8040" opacity=".32"/>
+
+    <!-- WHITE MEDINA in far background -->
+    <g opacity=".42">
+      <rect x="52"  y="270" width="7"  height="20" fill="#f8f8f8"/>
+      <rect x="63"  y="264" width="6"  height="26" fill="white"/>
+      <rect x="73"  y="273" width="5"  height="17" fill="#f8f8f8"/>
+      <rect x="82"  y="267" width="7"  height="23" fill="white"/>
+      <rect x="93"  y="275" width="5"  height="15" fill="#f8f8f8"/>
+      <rect x="102" y="269" width="6"  height="21" fill="white"/>
+      <!-- minaret -->
+      <rect x="118" y="246" width="9"  height="44" fill="white"/>
+      <rect x="116" y="243" width="13" height="5"  fill="#ddd"/>
+      <rect x="121" y="238" width="3"  height="7"  fill="#c8921a"/>
+      <rect x="131" y="268" width="6"  height="22" fill="white"/>
+      <rect x="141" y="273" width="5"  height="17" fill="#f8f8f8"/>
+      <rect x="150" y="265" width="7"  height="25" fill="white"/>
+    </g>
+
+    <!-- LEFT TRIUMPHAL ARCH GROUP -->
+    <!-- Left pillar -->
+    <rect x="292" y="238" width="26" height="90" fill="url(#stone)"/>
+    <!-- Right pillar -->
+    <rect x="348" y="228" width="26" height="100" fill="url(#stone)"/>
+    <!-- Architrave -->
+    <rect x="284" y="225" width="98" height="15"  fill="#b09068"/>
+    <rect x="283" y="219" width="100" height="8"  fill="#a08058"/>
+    <!-- Small arch fill -->
+    <ellipse cx="305" cy="225" rx="14" ry="11" fill="#1e3558" opacity=".75"/>
+    <ellipse cx="361" cy="225" rx="14" ry="11" fill="#1e3558" opacity=".75"/>
+
+    <!-- ═══ MAIN BASILICA ═══ -->
+    <!-- Wall body -->
+    <rect x="406" y="195" width="742" height="145" fill="url(#stone)"/>
+    <!-- Horizontal stone courses -->
+    <line x1="406" y1="230" x2="1148" y2="230" stroke="#9a8060" stroke-width="1.2" opacity=".45"/>
+    <line x1="406" y1="265" x2="1148" y2="265" stroke="#9a8060" stroke-width="1.2" opacity=".45"/>
+    <line x1="406" y1="300" x2="1148" y2="300" stroke="#9a8060" stroke-width="1.2" opacity=".45"/>
+    <!-- Platform -->
+    <rect x="392" y="334" width="770" height="18" fill="#aa8858"/>
+    <rect x="392" y="348" width="770" height="8"  fill="#907040"/>
+
+    <!-- Pilasters (vertical dividers) -->
+    <g fill="#caba98">
+      <rect x="406" y="188" width="13" height="152"/>
+      <rect x="480" y="188" width="13" height="152"/>
+      <rect x="554" y="188" width="13" height="152"/>
+      <rect x="628" y="188" width="13" height="152"/>
+      <rect x="702" y="188" width="13" height="152"/>
+      <rect x="776" y="188" width="13" height="152"/>
+      <rect x="850" y="188" width="13" height="152"/>
+      <rect x="924" y="188" width="13" height="152"/>
+      <rect x="998" y="188" width="13" height="152"/>
+      <rect x="1072" y="188" width="13" height="152"/>
+      <rect x="1143" y="188" width="13" height="152"/>
+    </g>
+
+    <!-- Arch openings (9 arches) — sky blue-dark fill -->
+    <g fill="#16304e" opacity=".82">
+      <rect x="419" y="228" width="61" height="106"/><ellipse cx="449" cy="228" rx="30.5" ry="24"/>
+      <rect x="493" y="228" width="61" height="106"/><ellipse cx="523" cy="228" rx="30.5" ry="24"/>
+      <rect x="567" y="228" width="61" height="106"/><ellipse cx="597" cy="228" rx="30.5" ry="24"/>
+      <rect x="641" y="228" width="61" height="106"/><ellipse cx="671" cy="228" rx="30.5" ry="24"/>
+      <rect x="715" y="228" width="61" height="106"/><ellipse cx="745" cy="228" rx="30.5" ry="24"/>
+      <rect x="789" y="228" width="61" height="106"/><ellipse cx="819" cy="228" rx="30.5" ry="24"/>
+      <rect x="863" y="228" width="61" height="106"/><ellipse cx="893" cy="228" rx="30.5" ry="24"/>
+      <rect x="937" y="228" width="61" height="106"/><ellipse cx="967" cy="228" rx="30.5" ry="24"/>
+      <rect x="1011" y="228" width="61" height="106"/><ellipse cx="1041" cy="228" rx="30.5" ry="24"/>
+    </g>
+
+    <!-- Cornice top -->
+    <rect x="400" y="182" width="756" height="13" fill="#c0a078"/>
+    <rect x="400" y="176" width="756" height="8"  fill="#a08050"/>
+
+    <!-- Fallen column drums -->
+    <ellipse cx="435"  cy="346" rx="20" ry="6" fill="#a09068" opacity=".7"/>
+    <ellipse cx="545"  cy="348" rx="16" ry="5" fill="#a09068" opacity=".65"/>
+    <ellipse cx="1095" cy="346" rx="22" ry="7" fill="#a09068" opacity=".7"/>
+    <ellipse cx="1185" cy="348" rx="18" ry="6" fill="#a09068" opacity=".65"/>
+
+    <!-- Stone rubble -->
+    <rect x="450"  y="346" width="35" height="7"  rx="2" fill="#aa9068" opacity=".55"/>
+    <rect x="900"  y="344" width="28" height="8"  rx="2" fill="#aa9068" opacity=".55"/>
+    <rect x="1220" y="345" width="40" height="6"  rx="2" fill="#aa9068" opacity=".5"/>
+
+    <!-- Mosaic floor remnant -->
+    <rect x="660"  y="347" width="180" height="7" fill="#c0a060" opacity=".5"/>
+    <rect x="662"  y="347" width="4"   height="7" fill="#c07828" opacity=".6"/>
+    <rect x="671"  y="347" width="4"   height="7" fill="#2878a0" opacity=".6"/>
+    <rect x="680"  y="347" width="4"   height="7" fill="#c07828" opacity=".6"/>
+    <rect x="689"  y="347" width="4"   height="7" fill="#2878a0" opacity=".6"/>
+
+    <!-- Olive trees -->
+    <ellipse cx="270"  cy="308" rx="26" ry="22" fill="#3d7030" opacity=".68"/>
+    <rect    x="268"   cy="318" width="4" height="24" fill="#5a4020" opacity=".68"/>
+    <ellipse cx="1180" cy="302" rx="22" ry="18" fill="#3d7030" opacity=".62"/>
+    <rect    x="1178"  cy="312" width="4" height="22" fill="#5a4020" opacity=".62"/>
+    <ellipse cx="1240" cy="312" rx="18" ry="15" fill="#3d7030" opacity=".6"/>
+    <rect    x="1238"  cy="320" width="4" height="20" fill="#5a4020" opacity=".6"/>
+
+    <!-- Atmospheric glow horizon -->
+    <ellipse cx="720" cy="340" rx="560" ry="26" fill="#d09040" opacity=".06"/>
+  </svg>
+
+  <div class="hero-veil"></div>
+  <div class="hero-text">
+    <p class="hero-kicker">IRASET 2026 &nbsp;·&nbsp; Fez, Morocco</p>
+    <h2 class="hero-h">Where <em>Innovation</em><br>Meets Timeless<br>Knowledge</h2>
+    <p class="hero-body">The premier IEEE-sponsored international conference on Applied Science, Engineering and Technology — held in the historic city of Fez.</p>
+    <div class="hero-actions">
+      <a href="#" class="btn-gold">Submit a Paper</a>
+      <a href="#" class="btn-ghost">Call For Papers</a>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="t-track">
+    <span class="t-item"><span class="lbl">Submission</span><span class="val">March 1, 2026</span></span>
+    <span class="t-item"><span class="dot">&middot;</span></span>
+    <span class="t-item"><span class="lbl">Acceptance</span><span class="val">From March 20, 2026</span></span>
+    <span class="t-item"><span class="dot">&middot;</span></span>
+    <span class="t-item"><span class="lbl">Camera-Ready</span><span class="val">April 15, 2026</span></span>
+    <span class="t-item"><span class="dot">&middot;</span></span>
+    <span class="t-item"><span class="lbl">Conference</span><span class="val">May 14–15, 2026</span></span>
+    <span class="t-item"><span class="dot">&middot;</span></span>
+    <span class="t-item"><span class="lbl">Venue</span>Faculty of Sciences Dhar El Mahraz, Fez, Morocco</span>
+    <span class="t-item"><span class="dot">&middot;</span></span>
+    <span class="t-item"><span class="lbl">Indexed</span>IEEE Xplore &amp; Scopus</span>
+    <span class="t-item"><span class="dot">&middot;</span></span>
+    <!-- duplicate for seamless scroll -->
+    <span class="t-item"><span class="lbl">Submission</span><span class="val">March 1, 2026</span></span>
+    <span class="t-item"><span class="dot">&middot;</span></span>
+    <span class="t-item"><span class="lbl">Acceptance</span><span class="val">From March 20, 2026</span></span>
+    <span class="t-item"><span class="dot">&middot;</span></span>
+    <span class="t-item"><span class="lbl">Camera-Ready</span><span class="val">April 15, 2026</span></span>
+    <span class="t-item"><span class="dot">&middot;</span></span>
+    <span class="t-item"><span class="lbl">Conference</span><span class="val">May 14–15, 2026</span></span>
+    <span class="t-item"><span class="dot">&middot;</span></span>
+    <span class="t-item"><span class="lbl">Venue</span>Faculty of Sciences Dhar El Mahraz, Fez, Morocco</span>
+    <span class="t-item"><span class="dot">&middot;</span></span>
+    <span class="t-item"><span class="lbl">Indexed</span>IEEE Xplore &amp; Scopus</span>
+    <span class="t-item"><span class="dot">&middot;</span></span>
+  </div>
+</div>
+
+<!-- DATE BAND -->
+<div class="dateband">
+  <div class="dateband-inner">
+    <div class="db-item">
+      <div class="db-num">Paper Submission</div>
+      <div class="db-date">March 1, 2026</div>
+      <div class="db-desc">Deadline</div>
+    </div>
+    <div class="db-item">
+      <div class="db-num">Acceptance Notification</div>
+      <div class="db-date">From March 20</div>
+      <div class="db-desc">Authors notified</div>
+    </div>
+    <div class="db-item">
+      <div class="db-num">Camera-Ready</div>
+      <div class="db-date">April 15, 2026</div>
+      <div class="db-desc">Final submission</div>
+    </div>
+    <div class="db-item">
+      <div class="db-num">Conference</div>
+      <div class="db-date">May 14–15, 2026</div>
+      <div class="db-desc">Fez, Morocco</div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE BODY -->
+<main class="page">
+
+  <!-- LEFT COLUMN -->
+  <div>
+
+    <!-- ABOUT -->
+    <div class="s-label">About the Conference</div>
+    <h2 class="s-title">About IRASET</h2>
+    <p class="prose">The International Conference on <strong>I</strong>nnovative <strong>R</strong>esearch in <strong>A</strong>pplied <strong>S</strong>cience, <strong>E</strong>ngineering and <strong>T</strong>echnology (<strong>IRASET</strong>) focuses on the latest researches, developments, advances and new technologies in the fields of <span class="accent">Computer Science</span>, <span class="accent">Information Technology</span>, <span class="accent">Signal Processing</span>, <span class="accent">Emerging Technologies</span>, <span class="accent">Wireless Communications</span>, Smart Grid and Green Communications.</p>
+    <p class="prose">The conference aims to disseminate novel ideas and emerging trends, research results and practical achievements. Original and high quality contributions are solicited, including theories, applications and experiments. IRASET is an opportunity to network, build partnerships and exchange ideas with a variety of experienced researchers, developers and practitioners from universities, research institutes, and academia.</p>
+    <div class="venue-callout">
+      <p><strong>IRASET'2026</strong> will be held at Sidi Mohamed Ben Abdallah University, Faculty of Sciences Dhar El Mahraz<br>
+      <span class="vc-date">Fez, Morocco &mdash; May 14&ndash;15, 2026</span></p>
+    </div>
+
+    <!-- TOPICS -->
+    <div class="section-gap">
+      <div class="s-label">Research Areas</div>
+      <h2 class="s-title">Topics of Interest</h2>
+      <div class="topics-grid">
+        <div class="topic-row">Computer Science &amp; Artificial Intelligence</div>
+        <div class="topic-row">Information Technology</div>
+        <div class="topic-row">Signal Processing</div>
+        <div class="topic-row">Wireless Communications</div>
+        <div class="topic-row">Smart Grid Technologies</div>
+        <div class="topic-row">Green Communications</div>
+        <div class="topic-row">Emerging Technologies</div>
+        <div class="topic-row">Internet of Things (IoT)</div>
+        <div class="topic-row">Cybersecurity</div>
+        <div class="topic-row">Machine Learning &amp; Data Science</div>
+        <div class="topic-row">Embedded Systems</div>
+        <div class="topic-row">5G &amp; Beyond Networks</div>
+      </div>
+    </div>
+
+    <!-- SPONSORS -->
+    <div class="section-gap">
+      <div class="s-label">Technical Co-Sponsors</div>
+      <h2 class="s-title">Technical Sponsors</h2>
+      <p class="prose">IRASET'<strong style="color:var(--red);">2026</strong> is technically Co-Sponsored by <strong>IEEE</strong> Advancing Technology for Humanity and <strong>IEEE Communications Society</strong>.</p>
+      <div class="sp-row">
+        <div class="sp-block">
+          <div class="sp-ieee-mark"><span class="sq"></span>IEEE</div>
+          <div class="sp-label">Advancing Technology for Humanity</div>
+        </div>
+        <div class="sp-block">
+          <div class="sp-scopus-mark">Scopus</div>
+          <div class="sp-label">Indexed</div>
+        </div>
+        <div class="sp-block">
+          <div class="sp-comsoc-mark"><span class="c1">Com</span><span class="c2">Soc</span><sup style="font-size:11px;color:var(--slate);">®</sup></div>
+          <div class="sp-label">IEEE Communications Society</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROCEEDINGS -->
+    <div class="section-gap">
+      <div class="s-label">Publications</div>
+      <h2 class="s-title">Conference Proceedings Citation Index</h2>
+      <p class="prose">All accepted and presented papers will be published in the <strong>IEEE Xplore Digital Library</strong> and indexed in <strong>Scopus</strong>.</p>
+      <div class="proc-row">
+        <div class="proc-card">
+          <div class="xplore-mark">
+            <div class="xl-ieee">IEEE</div>
+            <div class="xl-name">Xplore<sup style="font-size:13px;color:var(--slate);">®</sup></div>
+            <div class="xl-sub">Digital Library</div>
+          </div>
+        </div>
+        <div class="proc-card">
+          <div class="sp-scopus-mark" style="width:72px;height:72px;font-size:15px;">Scopus</div>
+          <div class="sp-label" style="margin-top:8px;">Indexed</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PREVIOUS EDITIONS -->
+    <div class="section-gap">
+      <div class="s-label">Archive</div>
+      <h2 class="s-title">Previous Editions</h2>
+      <div class="editions">
+        <div class="ed-row">
+          <div class="ed-year">IRASET'2025</div>
+          <div class="ed-meta">Published in <em>IEEE Xplore</em> Digital Library &middot; <strong>DOI:</strong> 10.1109/IRASET64571.2025</div>
+          <a href="#" class="ed-link">View</a>
+        </div>
+        <div class="ed-row">
+          <div class="ed-year">IRASET'2024</div>
+          <div class="ed-meta">Published in <em>IEEE Xplore</em> Digital Library &middot; <strong>DOI:</strong> 10.1109/IRASET60544.2024</div>
+          <a href="#" class="ed-link">View</a>
+        </div>
+        <div class="ed-row">
+          <div class="ed-year">IRASET'2023</div>
+          <div class="ed-meta">Published in <em>IEEE Xplore</em> Digital Library &middot; <strong>DOI:</strong> 10.1109/IRASET57153.2023</div>
+          <a href="#" class="ed-link">View</a>
+        </div>
+        <div class="ed-row">
+          <div class="ed-year">IRASET'2022</div>
+          <div class="ed-meta">Published in <em>IEEE Xplore</em> Digital Library &middot; <strong>DOI:</strong> 10.1109/IRASET52964.2022</div>
+          <a href="#" class="ed-link">View</a>
+        </div>
+        <div class="ed-row">
+          <div class="ed-year">IRASET'2021</div>
+          <div class="ed-meta">Published in <em>IEEE Xplore</em> Digital Library &middot; <strong>DOI:</strong> 10.1109/IRASET52964.2021</div>
+          <a href="#" class="ed-link">View</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- PARTNERS -->
+    <div class="section-gap">
+      <div class="s-label">Academic Network</div>
+      <h2 class="s-title">Partner Universities &amp; Institutions</h2>
+      <div class="partners-grid">
+        <div class="p-card"><div class="p-abbr" style="color:#4a7a28;">EST</div><div class="p-full">Meknès &mdash; École Supérieure de Technologie</div></div>
+        <div class="p-card"><div class="p-abbr" style="color:#2a2a2a;">ENSAM</div><div class="p-full">École Nationale Supérieure d'Arts et Métiers</div></div>
+        <div class="p-card"><div class="p-abbr" style="color:#0038a8;">ENSET</div><div class="p-full">École Normale Supérieure de l'Ens. Technique</div></div>
+        <div class="p-card"><div class="p-abbr" style="color:#003080;font-size:12px;">USMBA</div><div class="p-full">Faculté des Sciences, Fès</div></div>
+        <div class="p-card"><div class="p-abbr" style="color:#b85800;">ENSA</div><div class="p-full">Kénitra — Ibn Tofail University</div></div>
+        <div class="p-card"><div class="p-abbr" style="color:#383838;font-size:11px;">FST</div><div class="p-full">Faculté des Sciences et Techniques Al Hoceima</div></div>
+        <div class="p-card"><div class="p-abbr" style="color:#b85800;">ENSA</div><div class="p-full">Fès</div></div>
+        <div class="p-card"><div class="p-abbr" style="color:#0038a8;">INPT</div><div class="p-full">Institut National des Postes et Télécommunications</div></div>
+        <div class="p-card"><div class="p-abbr" style="color:#002f80;font-size:11px;">EMI</div><div class="p-full">École Mohammadia d'Ingénieurs</div></div>
+        <div class="p-card"><div class="p-abbr" style="color:#003a7a;">UTT</div><div class="p-full">Université de Technologie de Troyes</div></div>
+        <div class="p-card"><div class="p-abbr" style="color:#a80000;">ÉTS</div><div class="p-full">École de Technologie Supérieure, Québec</div></div>
+        <div class="p-card"><div class="p-abbr" style="color:#003888;">INSA</div><div class="p-full">Rouen Normandie</div></div>
+        <div class="p-card"><div class="p-abbr" style="color:#7a0000;font-size:11px;">Univ. Lille</div><div class="p-full">Sciences et Technologies</div></div>
+        <div class="p-card"><div class="p-abbr" style="color:#004800;font-size:10px;">جامعة صفاقس</div><div class="p-full">Université de Sfax</div></div>
+        <div class="p-card"><div class="p-abbr" style="color:#002a58;font-size:10px;">충남대학교</div><div class="p-full">Chungnam National University</div></div>
+        <div class="p-card"><div class="p-abbr" style="color:#002a58;font-size:10px;">ABIS</div><div class="p-full">Asia Business International Studies</div></div>
+        <div class="p-card"><div class="p-abbr" style="color:#383838;font-size:10px;">Campus RN</div><div class="p-full">Rouen Normandie Sciences &amp; Ingénierie</div></div>
+        <div class="p-card"><div class="p-abbr" style="color:#002f80;">ESIGELEC</div><div class="p-full">irseem</div></div>
+      </div>
+    </div>
+
+  </div><!-- /main col -->
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="scard">
+      <div class="scard-head">Important Dates</div>
+      <div class="scard-body">
+        <div class="sdates">
+          <div class="sdate-row"><span class="sdate-label">Paper Submission Deadline</span><span class="sdate-val">Mar 1, 2026</span></div>
+          <div class="sdate-row"><span class="sdate-label">Acceptance Notification</span><span class="sdate-val">From Mar 20</span></div>
+          <div class="sdate-row"><span class="sdate-label">Camera-Ready Submission</span><span class="sdate-val">Apr 15, 2026</span></div>
+          <div class="sdate-row"><span class="sdate-label">Registration Deadline</span><span class="sdate-val">Apr 20, 2026</span></div>
+          <div class="sdate-row"><span class="sdate-label">Conference</span><span class="sdate-val">May 14–15, 2026</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scard">
+      <div class="scard-head">Paper Submission</div>
+      <div class="scard-body">
+        <p style="font-size:13px;color:var(--slate);margin-bottom:14px;line-height:1.7;">Submit original, unpublished research in IEEE format (4–6 pages). Reviewed by an international program committee.</p>
+        <a href="#" class="sbtn">Submit Your Paper</a>
+        <p class="sbtn-note">Via EDAS platform &mdash; IEEE two-column format required</p>
+      </div>
+    </div>
+
+    <div class="scard">
+      <div class="scard-head">Conference Mode</div>
+      <div class="scard-body">
+        <div class="hybrid-strip">
+          <strong>Hybrid Conference</strong>
+          <span>In-person &amp; Online participation</span>
+        </div>
+        <p style="font-size:12px;color:var(--slate);margin-top:12px;line-height:1.7;">Physical attendance in Fez and virtual participation both fully supported. Remote presenters receive full proceedings and certificate.</p>
+      </div>
+    </div>
+
+    <div class="scard">
+      <div class="scard-head">Venue</div>
+      <div class="scard-body">
+        <div class="minimap">
+          <svg viewBox="0 0 300 225" xmlns="http://www.w3.org/2000/svg">
+            <rect width="300" height="225" fill="#c8dce8"/>
+            <!-- Blocks -->
+            <rect x="0"   y="0"   width="300" height="225" fill="#c4d8e4"/>
+            <rect x="8"   y="75"  width="60"  height="30"  rx="2" fill="#b4c8d4"/>
+            <rect x="80"  y="75"  width="65"  height="30"  rx="2" fill="#b4c8d4"/>
+            <rect x="160" y="75"  width="60"  height="30"  rx="2" fill="#b4c8d4"/>
+            <rect x="234" y="75"  width="58"  height="30"  rx="2" fill="#b4c8d4"/>
+            <rect x="8"   y="118" width="60"  height="28"  rx="2" fill="#b4c8d4"/>
+            <rect x="160" y="118" width="60"  height="28"  rx="2" fill="#b4c8d4"/>
+            <rect x="234" y="118" width="58"  height="28"  rx="2" fill="#b4c8d4"/>
+            <!-- Roads -->
+            <rect x="0"   y="105" width="300" height="13" fill="white" opacity=".9"/>
+            <rect x="145" y="0"   width="12"  height="225" fill="white" opacity=".9"/>
+            <rect x="0"   y="57"  width="300" height="8"  fill="white" opacity=".7"/>
+            <rect x="0"   y="157" width="300" height="8"  fill="white" opacity=".7"/>
+            <rect x="72"  y="0"   width="8"   height="225" fill="white" opacity=".7"/>
+            <rect x="222" y="0"   width="8"   height="225" fill="white" opacity=".7"/>
+            <!-- Pin -->
+            <circle cx="151" cy="111" r="18" fill="#aa2a1a"/>
+            <circle cx="151" cy="109" r="8"  fill="white"/>
+            <polygon points="151,133 141,116 161,116" fill="#aa2a1a"/>
+            <!-- Label -->
+            <rect x="50" y="154" width="200" height="26" rx="4" fill="rgba(255,255,255,.92)"/>
+            <text x="150" y="172" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#0e1724">Faculty of Sciences, Fez</text>
+          </svg>
+        </div>
+        <div class="venue-text">
+          <strong>Faculty of Sciences Dhar El Mahraz</strong><br>
+          Sidi Mohamed Ben Abdallah University<br>
+          Fez, Morocco<br>
+          <a href="#">View on map &rarr;</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="scard workshop-card">
+      <div class="scard-head">Featured Workshop</div>
+      <div class="scard-body">
+        <div class="w-name">3rd IWICCAS 2026</div>
+        <p class="w-desc">International Workshop on Intelligent Communications, Computing and Applications Systems &mdash; co-located with IRASET'2026.</p>
+        <a href="#" class="sbtn" style="background:var(--navy);color:white;">Learn More &rarr;</a>
+      </div>
+    </div>
+
+  </aside>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-col">
+      <h4>IRASET'2026</h4>
+      <p>The 6th International Conference on Innovative Research in Applied Science, Engineering and Technology. IEEE-sponsored, Scopus-indexed. Held at the Faculty of Sciences Dhar El Mahraz, Fez, Morocco.</p>
+      <div style="margin-top:14px;">
+        <span class="chip" style="background:rgba(184,131,42,.15);border:1px solid rgba(184,131,42,.3);color:var(--gold-lt);">IEEE Sponsored</span>
+        <span class="chip" style="background:rgba(0,180,160,.1);border:1px solid rgba(0,180,160,.3);color:#60d8c8;">Scopus Indexed</span>
+        <span class="chip" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.6);">Hybrid Format</span>
+      </div>
+    </div>
+    <div class="foot-col">
+      <h4>Quick Links</h4>
+      <div class="foot-links">
+        <a href="#">Call For Papers</a>
+        <a href="#">Important Dates</a>
+        <a href="#">Paper Submission</a>
+        <a href="#">Registration</a>
+        <a href="#">Keynote Speakers</a>
+        <a href="#">Program</a>
+        <a href="#">Venue &amp; Travel</a>
+        <a href="#">Committees</a>
+      </div>
+    </div>
+    <div class="foot-col">
+      <h4>Contact</h4>
+      <p>
+        iraset2026@usmba.ac.ma<br>
+        Faculty of Sciences Dhar El Mahraz<br>
+        Fez, Morocco<br>
+        iraset.org/2026
+      </p>
+      <div style="margin-top:18px;">
+        <h4 style="margin-bottom:8px;">Proceedings</h4>
+        <p style="font-size:12.5px;line-height:1.75;">Published in <strong style="color:rgba(255,255,255,.7);">IEEE Xplore</strong> Digital Library and indexed in <strong style="color:rgba(255,255,255,.7);">Scopus</strong>.</p>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <p>&copy; 2026 IRASET&rsquo;2026 &mdash; All rights reserved</p>
+    <p>IEEE Conference Record <span class="rec">#68627</span></p>
+  </div>
+</footer>
+
+<button class="stbtn" id="stbtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<script>
+// Hamburger
+const ham = document.getElementById('ham');
+const nav = document.getElementById('navlinks');
+ham.addEventListener('click', () => nav.classList.toggle('open'));
+
+// Scroll top button
+const stbtn = document.getElementById('stbtn');
+window.addEventListener('scroll', () => stbtn.classList.toggle('on', scrollY > 380));
+
+// Staggered scroll-reveal
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.07 });
+
+document.querySelectorAll(
+  '.topic-row, .p-card, .sp-block, .proc-card, .ed-row, .scard'
+).forEach((el, i) => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(16px)';
+  el.style.transition = `opacity .45s ${(i % 12) * 0.04}s ease, transform .45s ${(i % 12) * 0.04}s ease`;
+  io.observe(el);
+});
+
+// Nav active link
+document.querySelectorAll('.nav-links a:not(.nav-workshop)').forEach(a => {
+  a.addEventListener('click', function() {
+    document.querySelectorAll('.nav-links a').forEach(x => x.classList.remove('active'));
+    this.classList.add('active');
+    nav.classList.remove('open');
+  });
+});
+</script>
+</body>
+</html>
